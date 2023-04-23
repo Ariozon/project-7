@@ -1,0 +1,29 @@
+Установка и запуск Docker на ВМ:
+apt-get update && apt-get install docker.io
+docker --version
+sudo systemctl start docker
+sudo systemctl status docker
+sudo apt-get install postgresql
+sudo systemctl start postgresql
+sudo systemctl status postgresql
+sudo su postgres
+  psql
+    CREATE DATABASE dbuser;
+    CREATE USER nuser WITH PASSWORD 'pass23';
+    GRANT ALL PRIVILEGES ON DATABASE dbuser23 TO user23;
+sudo mkdir /srv/app
+sudo mkdir /srv/app/conf
+root@vm1:~# git clone https://github.com/dir123/DEVOPS-Docker.git
+root@vm1:~# cp /root/dir123/DEVOPS-Docker/web.py /srv/app/
+root@vm1:~# cp /root/dir123/DEVOPS-Docker/web.conf /srv/app/conf/
+root@vm1:~# nano /srv/app/Dockerfile
+root@vm1:~# nano /srv/app/requirements.txt file
+root@vm1:~# docker build -t myapp:latest /srv/app/
+root@vm1:~# docker images
+      REPOSITORY   TAG               IMAGE ID       CREATED         SIZE
+      myapp        latest            5812368481281   8 seconds ago   241MB
+root@vm1:~# docker run -d --name myapp -p 80:80 -v /srv/app:/srv/app myapp:latest
+        7c87342yiuerhgf92348ryhouiweyhrf9248ryoweuhf9328
+root@vm1:~# docker ps -a
+    CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS                       PORTS     NAMES
+    5812368481281   myapp:latest   "python app.py"          4 minutes ago    Exited (2) 4 minutes ago               myapp
